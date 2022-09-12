@@ -7,20 +7,14 @@ public class TriangleTypes {
         Scanner sc = new Scanner(System.in);
 
 
-        int input1 = sc.nextInt();
-        int input2 = sc.nextInt();
-        int input3 = sc.nextInt();
+        double input1 = sc.nextDouble();
+        double input2 = sc.nextDouble();
+        double input3 = sc.nextDouble();
 
-//        если A ≥ B + C, напишите сообщение: NAO FORMA TRIANGULO
-//        если A2 = B2 + C2, напишите сообщение: TRIANGULO RETANGULO
-//        если A2 > B2 + C2, напишите сообщение: TRIANGULO OBTUSANGULO
-//        если A2 < B2 + C2, напишите сообщение: TRIANGULO ACUTANGULO
-//        если три стороны имеют одинаковый размер, напишите сообщение: TRIANGULO EQUILATERO
-//        если только две стороны совпадают, а третья отличается, напишите сообщение: TRIANGULO ISOSCELES
-        if(input1 > input2 && input2 > input3 || input1 >= input2 && input2 > input3 || input1 > input2 && input2 >= input3 || input1 >= input2 && input2 < input3 || input1 > input2 && input2 <= input3 || input1 == input2 && input2 == input3){
-            int a = input1;
-            int b = input2;
-            int c = input3;
+        if(input1 > input2 && input2 > input3 || input1 >= input2 && input2 > input3 || input1 > input2 && input2 >= input3 || input1 > input2 && input2 <= input3 || input1 == input2 && input2 == input3){
+            double a = input1;
+            double b = input2;
+            double c = input3;
             if(a >= b + c){
                 System.out.println("NAO FORMA TRIANGULO");
                 return;
@@ -37,28 +31,13 @@ public class TriangleTypes {
             if(a == b && b == c){
                 System.out.println("TRIANGULO EQUILATERO");
             }
-            if(a == b && b > c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(b == c && c > a){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(a == b && b < c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(b == c && c > a){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(a == c && b < c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(c == a && c > a){
+            if(a == b && b > c || a == b && b < c || a == c && c < b || a == c && c > b || b == c && c < a || b ==c && c > a){
                 System.out.println("TRIANGULO ISOSCELES");
             }
         }else if(input2 > input1 && input1 > input3 || input2 >= input1 && input1 > input3 || input2 > input1 && input1 >= input3 || input2 >= input1 && input2 > input3 || input2 > input1 && input2 >= input3 || input2 == input1 && input1 == input3){
-            int a = input2;
-            int b = input3;
-            int c = input1;
+            double a = input2;
+            double b = input3;
+            double c = input1;
             if(a >= b + c){
                 System.out.println("NAO FORMA TRIANGULO");
                 return;
@@ -75,28 +54,13 @@ public class TriangleTypes {
             if(a == b && b == c){
                 System.out.println("TRIANGULO EQUILATERO");
             }
-            if(a == b && b > c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(b == c && c > a){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(a == b && b < c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(b == c && c > a){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(a == c && b < c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(c == a && c > a){
+            if(a == b && b > c || a == b && b < c || a == c && c < b || a == c && c > b || b == c && c < a || b ==c && c > a){
                 System.out.println("TRIANGULO ISOSCELES");
             }
         }else if(input3 > input1 && input1 > input2 || input3 >= input1 && input1 > input2 || input3 > input1 && input1 >= input2|| input3 >= input1 && input3 > input2 || input3 > input1 && input1 >= input2 || input3 == input1 && input1 == input2){
-            int a = input3;
-            int b = input2;
-            int c = input1;
+            double a = input3;
+            double b = input2;
+            double c = input1;
             if(a >= b + c){
                 System.out.println("NAO FORMA TRIANGULO");
                 return;
@@ -113,22 +77,7 @@ public class TriangleTypes {
             if(a == b && b == c){
                 System.out.println("TRIANGULO EQUILATERO");
             }
-            if(a == b && b > c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(b == c && c > a){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(a == b && b < c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(b == c && c > a){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(a == c && b < c){
-                System.out.println("TRIANGULO ISOSCELES");
-            }
-            if(c == a && c > a){
+            if(a == b && b > c || a == b && b < c || a == c && c < b || a == c && c > b || b == c && c < a || b ==c && c > a){
                 System.out.println("TRIANGULO ISOSCELES");
             }
         }
