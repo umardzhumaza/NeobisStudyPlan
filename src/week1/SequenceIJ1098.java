@@ -1,4 +1,4 @@
-package Week1;
+package week1;
 
 public class SequenceIJ1098 {
     public static void main(String[] args) {
