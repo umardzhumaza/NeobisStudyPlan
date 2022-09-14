@@ -6,7 +6,7 @@ public class WeightedAverages1079 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int testCount = sc.nextInt();
-        //(100 х 70) + (300 х 80) + (50 х 95)/450
+
         float firstValue, secondValue, thirdValue, averages;
         for (int i = 0; i < testCount; i++) {
             firstValue = sc.nextFloat();

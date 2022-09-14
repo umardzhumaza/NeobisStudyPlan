@@ -2,7 +2,7 @@ package Week1;
 
 import java.util.Scanner;
 
-public class PopulationIncrease1160 {
+public class PopulationInCrease1160 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int count = sc.nextInt();

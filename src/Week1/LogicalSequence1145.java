@@ -20,7 +20,6 @@ public class LogicalSequence1145 {
             if(to % from != 0){
                 System.out.println("");
             }
-
         }
     }
 }
