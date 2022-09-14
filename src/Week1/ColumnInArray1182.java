@@ -3,36 +3,34 @@ package Week1;
 import java.util.Scanner;
 
 public class ColumnInArray1182 {
-    public static Scanner sc = new Scanner(System.in);
-    public static int inter, gremio, next, grenais, interWinCount, gremioWinCounter, empates;
     public static void main(String[] args) {
-        while (next != 2){
-            match();
+        Scanner sc = new Scanner(System.in);
+        float[][] matrix = new float[12][12];
+        String s = "S";
+        String m = "M";
+        int column;
+        String action;
+        float sum = 0f, average = 0f, value;
+        column = sc.nextInt();
+        action = sc.next();
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 12; j++) {
+                value = sc.nextFloat();
+                matrix[i][j] = value;
+            }
         }
-        System.out.println(grenais + " grenais");
-        System.out.println("Inter:" + interWinCount);
-        System.out.println("Gremio:" + gremioWinCounter);
-        System.out.println("Empates:" + empates);
-        if(interWinCount > gremioWinCounter){
-            System.out.println("Inter venceu mais");
-        }else if(gremioWinCounter > interWinCount){
-            System.out.println("Gremio venceu mais");
-        }else{
-            System.out.println("Não houve vencedor");
+        if(action.equals(s)){
+            for (int i = 0; i < 12; i++) {
+                sum += matrix[i][column];
+            }
+            System.out.printf("%.1f\n", sum);
         }
-    }
-    public static void match(){
-        grenais++;
-        inter = sc.nextInt();
-        gremio = sc.nextInt();
-        if(inter>gremio){
-            interWinCount++;
-        }else if(gremio > inter){
-            gremioWinCounter++;
-        }else {
-            empates++;
+        if(action.equals(m)){
+            for (int i = 0; i < 12; i++) {
+                sum += matrix[i][column];
+                average = sum / 12.0f;
+            }
+            System.out.printf("%.1f\n", average);
         }
-        System.out.println("Novo grenal (1-sim 2-nao)");
-        next = sc.nextInt();
     }
 }
