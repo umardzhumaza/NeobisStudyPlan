@@ -18,8 +18,12 @@ public class FlaviousJosephusLegend1030 {
             }
             steps = sc.nextInt();
             for (int i = 0; ; i++) {
-                if(list.size() == tempVariable+1){
+
+                if(list.size() < tempVariable+steps){
                     i = -1;
+                    steps = list.size() - tempVariable - steps;
+                    steps = Math.abs(steps) - 1;
+
                 }
                 if(list.size() == tempVariable)
                     i=0;
@@ -29,7 +33,7 @@ public class FlaviousJosephusLegend1030 {
                 }
                 tempVariable = list.indexOf(list.get(i + (steps - 1)));
                 value = list.get(0);
-                list.remove(i + (steps - 1));
+                list.remove(tempVariable);
                 i = tempVariable - 1;
             }
             testCount--;
