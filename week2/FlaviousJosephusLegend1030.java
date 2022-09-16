@@ -1,42 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class FlaviousJosephusLegend1030 {
-    public static void main(String[] args) {
+    public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        int testCount = sc.nextInt();
-        int test = 0, steps, peoples, tempVariable = 0, value = 0;
-        while (testCount != 0){
-            peoples = sc.nextInt();
-            test++;
-            List<Integer> list = new ArrayList<>(peoples);
-            List<Integer> temp = new ArrayList<>(peoples);
-            for (int i = 0; i < peoples; i++) {
-                list.add(i, i+1);
-                temp.add(i, i+1);
-            }
-            steps = sc.nextInt();
-            for (int i = 0; ; i++) {
 
-                if(list.size() < tempVariable+steps){
-                    i = -1;
-                    steps = list.size() - tempVariable - steps;
-                    steps = Math.abs(steps) - 1;
+        int num = sc.nextInt();
+        int answer=0;
 
-                }
-                if(list.size() == tempVariable)
-                    i=0;
-                if (list.size() == 1) {
-                    System.out.println("Case " + test + ": " + value);
-                    break;
-                }
-                tempVariable = list.indexOf(list.get(i + (steps - 1)));
-                value = list.get(0);
-                list.remove(tempVariable);
-                i = tempVariable - 1;
+        for(int i = 1; i <= num; i++){
+
+            int num1 = sc.nextInt();
+            int num2 = sc.nextInt();
+
+            for(int j=1; j<=num1;j++){
+                answer = (answer + num2) % j;
             }
-            testCount--;
+            System.out.printf("Case %d: %d\n", i, answer + 1);
         }
     }
 }
