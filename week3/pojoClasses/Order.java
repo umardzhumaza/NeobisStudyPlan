@@ -1,13 +1,17 @@
 public class Order {
     private int id;
+    private Buyer buyer;
+    private Car car;
     private int totalAmount;
     private String orderDate;
     private String deliveryDate;
     private String paymentMethod;
     private String orderStatus;
 
-    public Order(int id, int totalAmount, String orderDate, String deliveryDate, String paymentMethod, String orderStatus) {
+    public Order(int id, Buyer buyer, Car car, int totalAmount, String orderDate, String deliveryDate, String paymentMethod, String orderStatus) {
         this.id = id;
+        this.buyer = buyer;
+        this.car = car;
         this.totalAmount = totalAmount;
         this.orderDate = orderDate;
         this.deliveryDate = deliveryDate;
@@ -21,6 +25,22 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Buyer getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(Buyer buyer) {
+        this.buyer = buyer;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 
     public int getTotalAmount() {
