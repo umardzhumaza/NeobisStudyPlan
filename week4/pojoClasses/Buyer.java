@@ -1,19 +1,19 @@
+package pojoClasses;
+
 public class Buyer {
     private int id;
     private String name;
     private String surName;
     private int age;
-    private Character gender;
     private String address;
     private String email;
     private String phoneNumber;
 
-    public Buyer(int id, String name, String surName, int age, char gender, String address, String email, String phoneNumber) {
+    public Buyer(int id, String name, String surName, int age, String address, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surName = surName;
         this.age = age;
-        this.gender = gender;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -49,14 +49,6 @@ public class Buyer {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public Character getGender() {
-        return gender;
-    }
-
-    public void setGender(Character gender) {
-        this.gender = gender;
     }
 
     public String getAddress() {
