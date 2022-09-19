@@ -4,21 +4,21 @@ public class Orders {
     private int id;
     private Buyer buyer;
     private Car car;
-    private int totalAmount;
-    private String orderDate;
-    private String deliveryDate;
-    private String paymentMethod;
-    private String orderStatus;
+    private int total_amount;
+    private String order_date;
+    private String delivery_date;
+    private String payment_method;
+    private String order_status;
 
-    public Orders(int id, Buyer buyer, Car car, int totalAmount, String orderDate, String deliveryDate, String paymentMethod, String orderStatus) {
+    public Orders(int id, Buyer buyer, Car car, int total_amount, String order_date, String delivery_date, String payment_method, String order_status) {
         this.id = id;
         this.buyer = buyer;
         this.car = car;
-        this.totalAmount = totalAmount;
-        this.orderDate = orderDate;
-        this.deliveryDate = deliveryDate;
-        this.paymentMethod = paymentMethod;
-        this.orderStatus = orderStatus;
+        this.total_amount = total_amount;
+        this.order_date = order_date;
+        this.delivery_date = delivery_date;
+        this.payment_method = payment_method;
+        this.order_status = order_status;
     }
 
     public int getId() {
@@ -45,43 +45,43 @@ public class Orders {
         this.car = car;
     }
 
-    public int getTotalAmount() {
-        return totalAmount;
+    public int getTotal_amount() {
+        return total_amount;
     }
 
-    public void setTotalAmount(int totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setTotal_amount(int total_amount) {
+        this.total_amount = total_amount;
     }
 
-    public String getOrderDate() {
-        return orderDate;
+    public String getOrder_date() {
+        return order_date;
     }
 
-    public void setOrderDate(String orderDate) {
-        this.orderDate = orderDate;
+    public void setOrder_date(String order_date) {
+        this.order_date = order_date;
     }
 
-    public String getDeliveryDate() {
-        return deliveryDate;
+    public String getDelivery_date() {
+        return delivery_date;
     }
 
-    public void setDeliveryDate(String deliveryDate) {
-        this.deliveryDate = deliveryDate;
+    public void setDelivery_date(String delivery_date) {
+        this.delivery_date = delivery_date;
     }
 
-    public String getPaymentMethod() {
-        return paymentMethod;
+    public String getPayment_method() {
+        return payment_method;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setPayment_method(String payment_method) {
+        this.payment_method = payment_method;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
+    public String getOrder_status() {
+        return order_status;
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setOrder_status(String order_status) {
+        this.order_status = order_status;
     }
 }

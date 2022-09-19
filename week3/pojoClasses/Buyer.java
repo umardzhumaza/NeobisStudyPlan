@@ -1,22 +1,22 @@
 public class Buyer {
     private int id;
     private String name;
-    private String surName;
+    private String sur_name;
     private int age;
     private Character gender;
     private String address;
     private String email;
-    private String phoneNumber;
+    private String phone_number;
 
-    public Buyer(int id, String name, String surName, int age, char gender, String address, String email, String phoneNumber) {
+    public Buyer(int id, String name, String sur_name, int age, char gender, String address, String email, String phone_number) {
         this.id = id;
         this.name = name;
-        this.surName = surName;
+        this.sur_name = sur_name;
         this.age = age;
         this.gender = gender;
         this.address = address;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phone_number;
     }
 
     public int getId() {
@@ -35,12 +35,12 @@ public class Buyer {
         this.name = name;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getSur_name() {
+        return sur_name;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setSur_name(String sur_name) {
+        this.sur_name = sur_name;
     }
 
     public int getAge() {
@@ -75,11 +75,11 @@ public class Buyer {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 }
