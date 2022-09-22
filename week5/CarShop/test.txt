@@ -1,0 +1,9 @@
+1.Created a maven project and added mysql-connector-java dependency!
+2.Download jdbc driver!
+3.Added a Jdbc Connector class to connect to my local database!
+4.Moved all paths to password files to a separate database.properties file!
+5.Connected to local carshop database!
+6.Created the Insert method added 3 cars to the Car table!
+7.Created the Select method and edited the output to the console in a convenient format!
+8.Created a Delete method that takes one ID argument, you can delete machines by ID and shows in the console which ID was deleted!
+9.Added a simple UPDATE method that takes two parameters ID and PRICE, where you can change the PRICE of the car with the ID...
