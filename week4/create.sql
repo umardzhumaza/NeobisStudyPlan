@@ -32,6 +32,6 @@ CREATE TABLE Orders(
         delivery_date varchar(50) NOT NULL,
         payment_method varchar(50) NOT NULL,
         order_status varchar(50) NOT NULL,
-        FOREIGN KEY (BuyerId) REFERENCES Buyer(id),
-        FOREIGN KEY (CarId) REFERENCES Car(id)
+        FOREIGN KEY (buyer_id) REFERENCES Buyer(id),
+        FOREIGN KEY (car_id) REFERENCES Car(id)
 );
