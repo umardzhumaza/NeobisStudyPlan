@@ -7,3 +7,4 @@
 7.Created the Select method and edited the output to the console in a convenient format!
 8.Created a Delete method that takes one ID argument, you can delete machines by ID and shows in the console which ID was deleted!
 9.Added a simple UPDATE method that takes two parameters ID and PRICE, where you can change the PRICE of the car with the ID...
+10.Tested all the methods in the Main method!
