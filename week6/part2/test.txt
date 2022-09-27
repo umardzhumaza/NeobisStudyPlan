@@ -1,0 +1,65 @@
+1.Tested with POSTMAN method GET request GET T-Shirts "/api/t_shirt" and received as a result JSON in the format:
+[
+    {
+        "id": 1,
+        "name": "Adidas men's t-shirt",
+        "color": "Black",
+        "price": 1999
+    },
+    {
+        "id": 2,
+        "name": "Puma men's t-shirt",
+        "color": "White",
+        "price": 1599
+    },
+    {
+        "id": 3,
+        "name": "Nike women's t-shirt",
+        "color": "With a unique print",
+        "price": 2599
+    },
+    {
+        "id": 4,
+        "name": "Women's t-shirt Li-ning",
+        "color": "Red",
+        "price": 1899
+    },
+    {
+        "id": 8,
+        "name": "Women's t-shirt",
+        "color": "Pink",
+        "price": 2000
+    },
+    {
+        "id": 9,
+        "name": "Women's t-shirt",
+        "color": "Pink",
+        "price": 2000
+    },
+    {
+        "id": 10,
+        "name": "Women's t-shirt",
+        "color": "White",
+        "price": 1400
+    }
+]
+2.Tested using POSTMAN method GET SINGLE T-Shirt "/api/t_shirt/1" and got the result in JSON format:
+{
+    "id": 1,
+    "name": "Adidas men's t-shirt",
+    "color": "Black",
+    "price": 1999
+}
+3.I tested the API using the POSTMAN POST CREATE method "/api/t_shirt" and body:
+"{
+"name": "Man's t-shirt",
+"color": "White",
+"price": 1400
+}" and got a response in json format:
+
+{
+    "id": 11,
+    "name": "Man's t-shirt",
+    "color": "White",
+    "price": 1400
+}
