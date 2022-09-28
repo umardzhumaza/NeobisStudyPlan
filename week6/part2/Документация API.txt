@@ -53,7 +53,6 @@ POST CREATE
 
 Response Body 200:
 {
-    "id": 10,
     "name": "Women's t-shirt",
     "color": "White",
     "price": 1400
@@ -78,10 +77,13 @@ PUT UPDATE
 
 Response Body 200:
 {
-    "id": 10,
-    "name": "Women's t-shirt",
-    "color": "White",
-    "price": 1400
+    "id": 16,
+    "name": "Women's T-Shirt Gucci",
+    "color": "Black",
+    "price": 4999,
+    "createdAt": "2022-09-28T14:09:28.4574636",
+    "updatedAt": "2022-09-28T14:09:28.4574636",
+    "createdWho": "ADMIN"
 }
 
 Response Body 400:

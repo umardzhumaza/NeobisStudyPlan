@@ -8,6 +8,7 @@ import ru.umar.onlinestore.restapp.models.T_Shirt;
 import ru.umar.onlinestore.restapp.repositories.T_ShirtRepository;
 import ru.umar.onlinestore.restapp.util.T_ShirtNotFoundException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +35,13 @@ public class T_ShirtService {
 
     @Transactional
     public void save(T_Shirt TShirt){
+        enrichTShirt(TShirt);
         TShirtRepository.save(TShirt);
     }
 
-
+    private void enrichTShirt(T_Shirt t_shirt) {
+        t_shirt.setCreatedAt(LocalDateTime.now());
+        t_shirt.setUpdatedAt(LocalDateTime.now());
+        t_shirt.setCreatedWho("ADMIN");
+    }
 }

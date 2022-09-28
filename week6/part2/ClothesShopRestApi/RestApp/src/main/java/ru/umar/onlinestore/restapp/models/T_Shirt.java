@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "t_shirt")
@@ -26,6 +28,15 @@ public class T_Shirt {
     @Column(name = "price")
     @Min(value = 0, message = "Price should be greater than 0")
     private int price;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "created_who")
+    private String createdWho;
 
     public T_Shirt() {
 
@@ -60,4 +71,16 @@ public class T_Shirt {
     public int getPrice() {return price;}
 
     public void setPrice(int price) {this.price = price;}
+
+    public LocalDateTime getCreatedAt() {return createdAt;}
+
+    public void setCreatedAt(LocalDateTime createdAt) {this.createdAt = createdAt;}
+
+    public LocalDateTime getUpdatedAt() {return updatedAt;}
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {this.updatedAt = updatedAt;}
+
+    public String getCreatedWho() {return createdWho;}
+
+    public void setCreatedWho(String createdWho) {this.createdWho = createdWho;}
 }

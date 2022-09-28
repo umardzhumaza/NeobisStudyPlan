@@ -1,11 +1,13 @@
 package ru.umar.onlinestore.restapp.controllers;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import ru.umar.onlinestore.restapp.dto.T_ShirtDTO;
 import ru.umar.onlinestore.restapp.models.T_Shirt;
 import ru.umar.onlinestore.restapp.repositories.T_ShirtRepository;
 import ru.umar.onlinestore.restapp.services.T_ShirtService;
@@ -14,33 +16,39 @@ import ru.umar.onlinestore.restapp.util.T_ShirtNotCreatedException;
 import ru.umar.onlinestore.restapp.util.T_ShirtNotFoundException;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/t_shirt")
 public class T_ShirtController {
+
     private final T_ShirtService TShirtService;
+    private final ModelMapper modelMapper;
     @Autowired
     private T_ShirtRepository t_shirtRepository;
 
     @Autowired
-    public T_ShirtController(T_ShirtService TShirtService) {
+    public T_ShirtController(T_ShirtService TShirtService, ModelMapper modelMapper) {
         this.TShirtService = TShirtService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping()
-    public List<T_Shirt> getT_Shirts(){
-        return TShirtService.findAll(); //Jackson конвертирует эти объекты в JSON
+    public List<T_ShirtDTO> getT_Shirts(){
+        return TShirtService.findAll().stream().map(this::convertToTShirtDTO)
+                .collect(Collectors.toList()); //Jackson конвертирует эти объекты в JSON
     }
 
     @GetMapping("/{id}")
-    public T_Shirt getT_Shirt(@PathVariable("id") int id){
+    public T_ShirtDTO getT_Shirt(@PathVariable("id") int id){
         //Status 200
-        return TShirtService.findOne(id); //Jackson конвертирует в JSON
+        return convertToTShirtDTO(TShirtService.findOne(id)); //Jackson конвертирует в JSON
     }
 
     @PostMapping()
-    public T_Shirt create(@RequestBody @Valid T_Shirt TShirt, BindingResult bindingResult){
+    public T_ShirtDTO create(@RequestBody @Valid T_ShirtDTO TShirtDTO, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             StringBuilder errorMessage = new StringBuilder();
 
@@ -51,10 +59,12 @@ public class T_ShirtController {
 
             throw new T_ShirtNotCreatedException(errorMessage.toString());
         }
-        TShirtService.save(TShirt);
+        TShirtService.save(convertToTShirt(TShirtDTO));
         // Отправляем http ответ с пустым телом и со статусом 200
-        return TShirt;
+        return TShirtDTO;
     }
+
+
 
     @PutMapping("/update/{id}")
     public T_Shirt update(@PathVariable("id") int id, @RequestBody @Valid T_Shirt t_shirt, BindingResult bindingResult){
@@ -69,7 +79,7 @@ public class T_ShirtController {
             throw new T_ShirtNotCreatedException(errorMessage.toString());
         }
         t_shirt.setId(id);
-
+        enrichTShirt(t_shirt);
         return t_shirtRepository.save(t_shirt);
     }
 
@@ -100,5 +110,12 @@ public class T_ShirtController {
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
+    private T_Shirt convertToTShirt(T_ShirtDTO tShirtDTO) {return modelMapper.map(tShirtDTO, T_Shirt.class);}
+    private T_ShirtDTO convertToTShirtDTO(T_Shirt t_shirt){return modelMapper.map(t_shirt, T_ShirtDTO.class);}
 
+    private void enrichTShirt(T_Shirt t_shirt) {
+        t_shirt.setCreatedAt(LocalDateTime.now());
+        t_shirt.setUpdatedAt(LocalDateTime.now());
+        t_shirt.setCreatedWho("ADMIN");
+    }
 }
