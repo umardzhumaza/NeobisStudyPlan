@@ -17,30 +17,6 @@
         "name": "Nike women's t-shirt",
         "color": "With a unique print",
         "price": 2599
-    },
-    {
-        "id": 4,
-        "name": "Women's t-shirt Li-ning",
-        "color": "Red",
-        "price": 1899
-    },
-    {
-        "id": 8,
-        "name": "Women's t-shirt",
-        "color": "Pink",
-        "price": 2000
-    },
-    {
-        "id": 9,
-        "name": "Women's t-shirt",
-        "color": "Pink",
-        "price": 2000
-    },
-    {
-        "id": 10,
-        "name": "Women's t-shirt",
-        "color": "White",
-        "price": 1400
     }
 ]
 2.Tested using POSTMAN method GET SINGLE T-Shirt "/api/t_shirt/1" and got the result in JSON format:

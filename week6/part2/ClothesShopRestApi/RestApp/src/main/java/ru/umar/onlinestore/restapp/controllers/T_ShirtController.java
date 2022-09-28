@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import ru.umar.onlinestore.restapp.models.T_Shirt;
+import ru.umar.onlinestore.restapp.repositories.T_ShirtRepository;
 import ru.umar.onlinestore.restapp.services.T_ShirtService;
 import ru.umar.onlinestore.restapp.util.T_ShirtErrorResponse;
 import ru.umar.onlinestore.restapp.util.T_ShirtNotCreatedException;
@@ -19,6 +20,8 @@ import java.util.List;
 @RequestMapping("/api/t_shirt")
 public class T_ShirtController {
     private final T_ShirtService TShirtService;
+    @Autowired
+    private T_ShirtRepository t_shirtRepository;
 
     @Autowired
     public T_ShirtController(T_ShirtService TShirtService) {
@@ -51,6 +54,30 @@ public class T_ShirtController {
         TShirtService.save(TShirt);
         // Отправляем http ответ с пустым телом и со статусом 200
         return TShirt;
+    }
+
+    @PutMapping("/update/{id}")
+    public T_Shirt update(@PathVariable("id") int id, @RequestBody @Valid T_Shirt t_shirt, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            StringBuilder errorMessage = new StringBuilder();
+
+            List<FieldError> errors = bindingResult.getFieldErrors();
+            for(FieldError error : errors){
+                errorMessage.append(error.getField()).append(" - ").append(error.getDefaultMessage()).append(";");
+            }
+
+            throw new T_ShirtNotCreatedException(errorMessage.toString());
+        }
+        t_shirt.setId(id);
+
+        return t_shirtRepository.save(t_shirt);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<HttpStatus> delete(@PathVariable("id") int id){
+        t_shirtRepository.deleteById(id);
+
+        return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK);
     }
 
     @ExceptionHandler

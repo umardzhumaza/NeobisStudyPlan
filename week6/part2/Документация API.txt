@@ -19,7 +19,7 @@ Response Body:
         "price": 1599
     }
 ]
-
+===================================================
 GET SINGLE T-Shirt
 1.GET SINGLE T-Shirt
 2.GET /api/t_shirt/id
@@ -39,14 +39,15 @@ Response Body 404:
     "message": "T-Shirt with this id wasn't found",
     "timestamp": 1664285487577
 }
-
+====================================================
 POST CREATE
 1.POST CREATE
 2.POST /api/t_shirt
 3.Params:
 {
-    "name": "morpheus",
-    "job": "leader"
+    "name": "Adidas men's t-shirt",
+    "color": "Black",
+    "price": 1999
 }
 4.200 OK OR 400 BAD REQUEST
 
@@ -63,3 +64,34 @@ Response Body 400:
     "message": "color - Color should be between 2 and 30 characters;price - Price should be greater than 0;",
     "timestamp": 1664285908732
 }
+========================================================
+PUT UPDATE
+1.PUT UPDATE
+2.PUT /api/t_shirt/update/id
+3.Params:
+{
+    "name": "Adidas men's t-shirt",
+    "color": "Black",
+    "price": 1999
+}
+4.200 OK OR 400 BAD REQUEST
+
+Response Body 200:
+{
+    "id": 10,
+    "name": "Women's t-shirt",
+    "color": "White",
+    "price": 1400
+}
+
+Response Body 400:
+{
+    "message": "color - Color should be between 2 and 30 characters;price - Price should be greater than 0;",
+    "timestamp": 1664285908732
+}
+========================================================
+DELETE T-Shirt:
+1.DELETE T-Shirt
+2.DELETE /api/t_shirt/delete/id
+3.None
+4.None(200 OK)
