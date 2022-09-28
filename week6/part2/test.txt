@@ -1,19 +1,16 @@
 1.Tested with POSTMAN method GET request GET T-Shirts "/api/t_shirt" and received as a result JSON in the format:
 [
     {
-        "id": 1,
         "name": "Adidas men's t-shirt",
         "color": "Black",
         "price": 1999
     },
     {
-        "id": 2,
         "name": "Puma men's t-shirt",
         "color": "White",
         "price": 1599
     },
     {
-        "id": 3,
         "name": "Nike women's t-shirt",
         "color": "With a unique print",
         "price": 2599
@@ -21,7 +18,6 @@
 ]
 2.Tested using POSTMAN method GET SINGLE T-Shirt "/api/t_shirt/1" and got the result in JSON format:
 {
-    "id": 1,
     "name": "Adidas men's t-shirt",
     "color": "Black",
     "price": 1999
@@ -31,11 +27,12 @@
 "name": "Man's t-shirt",
 "color": "White",
 "price": 1400
-}" and got a response in json format:
+}" and got a response status 200 OK!
+4.I tested the API using the POSTMAN PUT UPDATE method "/api/t_shirt/update/id" and body:
+"{
+"name": "Man's t-shirt",
+"color": "White",
+"price": 1400
+}" and got response status 200 OK!
 
-{
-    "id": 11,
-    "name": "Man's t-shirt",
-    "color": "White",
-    "price": 1400
-}
+5.I tested the API using the POSTMAN DELETE DELETE method "/api/t_shirt/delete/id" and got response status 200 OK!

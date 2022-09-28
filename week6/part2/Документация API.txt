@@ -51,12 +51,7 @@ POST CREATE
 }
 4.200 OK OR 400 BAD REQUEST
 
-Response Body 200:
-{
-    "name": "Women's t-shirt",
-    "color": "White",
-    "price": 1400
-}
+Response status 200 OK!
 
 Response Body 400:
 {
@@ -75,16 +70,7 @@ PUT UPDATE
 }
 4.200 OK OR 400 BAD REQUEST
 
-Response Body 200:
-{
-    "id": 16,
-    "name": "Women's T-Shirt Gucci",
-    "color": "Black",
-    "price": 4999,
-    "createdAt": "2022-09-28T14:09:28.4574636",
-    "updatedAt": "2022-09-28T14:09:28.4574636",
-    "createdWho": "ADMIN"
-}
+Response status 200 OK!
 
 Response Body 400:
 {

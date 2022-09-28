@@ -26,8 +26,6 @@ public class T_ShirtController {
 
     private final T_ShirtService TShirtService;
     private final ModelMapper modelMapper;
-    @Autowired
-    private T_ShirtRepository t_shirtRepository;
 
     @Autowired
     public T_ShirtController(T_ShirtService TShirtService, ModelMapper modelMapper) {
@@ -48,7 +46,7 @@ public class T_ShirtController {
     }
 
     @PostMapping()
-    public T_ShirtDTO create(@RequestBody @Valid T_ShirtDTO TShirtDTO, BindingResult bindingResult){
+    public ResponseEntity<HttpStatus> create(@RequestBody @Valid T_ShirtDTO TShirtDTO, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             StringBuilder errorMessage = new StringBuilder();
 
@@ -61,13 +59,13 @@ public class T_ShirtController {
         }
         TShirtService.save(convertToTShirt(TShirtDTO));
         // Отправляем http ответ с пустым телом и со статусом 200
-        return TShirtDTO;
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
 
 
     @PutMapping("/update/{id}")
-    public T_Shirt update(@PathVariable("id") int id, @RequestBody @Valid T_Shirt t_shirt, BindingResult bindingResult){
+    public ResponseEntity<HttpStatus> update(@PathVariable("id") int id, @RequestBody @Valid T_Shirt t_shirt, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             StringBuilder errorMessage = new StringBuilder();
 
@@ -79,13 +77,13 @@ public class T_ShirtController {
             throw new T_ShirtNotCreatedException(errorMessage.toString());
         }
         t_shirt.setId(id);
-        enrichTShirt(t_shirt);
-        return t_shirtRepository.save(t_shirt);
+        TShirtService.save(t_shirt);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable("id") int id){
-        t_shirtRepository.deleteById(id);
+        TShirtService.delete(id);
 
         return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK);
     }
@@ -113,9 +111,4 @@ public class T_ShirtController {
     private T_Shirt convertToTShirt(T_ShirtDTO tShirtDTO) {return modelMapper.map(tShirtDTO, T_Shirt.class);}
     private T_ShirtDTO convertToTShirtDTO(T_Shirt t_shirt){return modelMapper.map(t_shirt, T_ShirtDTO.class);}
 
-    private void enrichTShirt(T_Shirt t_shirt) {
-        t_shirt.setCreatedAt(LocalDateTime.now());
-        t_shirt.setUpdatedAt(LocalDateTime.now());
-        t_shirt.setCreatedWho("ADMIN");
-    }
 }

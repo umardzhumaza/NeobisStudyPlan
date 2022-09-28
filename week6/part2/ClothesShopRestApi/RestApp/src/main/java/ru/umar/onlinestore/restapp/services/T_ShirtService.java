@@ -39,6 +39,11 @@ public class T_ShirtService {
         TShirtRepository.save(TShirt);
     }
 
+    @Transactional
+    public void delete(int id){
+        TShirtRepository.deleteById(id);
+    }
+
     private void enrichTShirt(T_Shirt t_shirt) {
         t_shirt.setCreatedAt(LocalDateTime.now());
         t_shirt.setUpdatedAt(LocalDateTime.now());
