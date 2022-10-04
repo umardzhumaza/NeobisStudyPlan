@@ -6,12 +6,14 @@ import java.util.*;
 public class JdbcConnector{
 
     public static void main(String[] args) {
+        Car car1 = new Car(1, "Lamborghini Aventador", 2021, "Red", 780, 333000 , 355);
+        Car car2 = new Car(2, "Lamborghini Huracan", 2019, "Black", 640, 275000 , 325);
+        Car car3 = new Car(3, "TESLA MODEL X", 2021, "White", 1020, 159000 , 262);
         try{
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = getConnection()){
 
                 System.out.println("Connection to Store DB succesfull!");
-                Update(1,330000);
                 Select();
             }
         }
@@ -25,7 +27,7 @@ public class JdbcConnector{
     public static Connection getConnection() throws SQLException, IOException{
 
         Properties props = new Properties();
-        try(InputStream in = Files.newInputStream(Paths.get("C:\\Users\\24425\\Desktop\\JavaLearn\\CarShop\\src\\main\\java\\database.properties"))){
+        try(InputStream in = Files.newInputStream(Paths.get("C:\\Users\\24425\\Desktop\\JavaLearn\\README.md\\week5\\CarShop\\src\\main\\java\\database.properties"))){
             props.load(in);
         }
         String url = props.getProperty("url");
@@ -35,19 +37,23 @@ public class JdbcConnector{
         return DriverManager.getConnection(url, username, password);
     }
 
-    public static void Add() {
-        try{
-            String url = "jdbc:mysql://localhost/CarShop?serverTimezone=Europe/Moscow&useSSL=false";
-            String username = "root";
-            String password = "916052";
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+    public static void Add(Car car) {
+        Properties props = new Properties();
+        try(InputStream in = Files.newInputStream(Paths.get("C:\\Users\\24425\\Desktop\\JavaLearn\\README.md\\week5\\CarShop\\src\\main\\java\\database.properties"))){
+            props.load(in);
 
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+            try (Connection conn = getConnection()){
 
-                Statement statement = conn.createStatement();
-                int rows = statement.executeUpdate("INSERT Car(id, model, year_of_issue, color, horse_power, price, max_speed) VALUES (1, 'Lamborghini Aventador', 2021, 'Red', 780, 333000 , 355)," +
-                        "(2, 'Lamborghini Huracan', 2019, 'Black', 640, 275000 , 325), (3, 'TESLA MODEL X', 2021, 'White', 1020, 159000 , 262)");
-                System.out.printf("Added %d rows\n", rows);
+                PreparedStatement preparedStatement = getConnection().prepareStatement("INSERT Car(id, model, year_of_issue, color, horse_power, price, max_speed) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                preparedStatement.setInt(1, car.getId());
+                preparedStatement.setString(2, car.getModel());
+                preparedStatement.setInt(3, car.getYear_of_issue());
+                preparedStatement.setString(4, car.getColor());
+                preparedStatement.setDouble(5, car.getHorse_power());
+                preparedStatement.setDouble(6, car.getPrice());
+                preparedStatement.setInt(7, car.getMax_speed());
+                preparedStatement.executeUpdate();
+                System.out.printf("%s was added\n", car.getModel());
             }
         }
         catch(Exception ex){
@@ -58,13 +64,10 @@ public class JdbcConnector{
     }
 
     public static void Delete(int id) {
-        try{
-            String url = "jdbc:mysql://localhost/CarShop?serverTimezone=Europe/Moscow&useSSL=false";
-            String username = "root";
-            String password = "916052";
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+        Properties props = new Properties();
+        try(InputStream in = Files.newInputStream(Paths.get("C:\\Users\\24425\\Desktop\\JavaLearn\\README.md\\week5\\CarShop\\src\\main\\java\\database.properties"))){
+            props.load(in);
+            try (Connection conn = getConnection()){
 
                 Statement statement = conn.createStatement();
                 statement.executeUpdate("DELETE FROM Car WHERE id="+id+"");
@@ -79,13 +82,11 @@ public class JdbcConnector{
     }
 
     public static void Select() {
-        try{
-            String url = "jdbc:mysql://localhost/CarShop?serverTimezone=Europe/Moscow&useSSL=false";
-            String username = "root";
-            String password = "916052";
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+        Properties props = new Properties();
+        try(InputStream in = Files.newInputStream(Paths.get("C:\\Users\\24425\\Desktop\\JavaLearn\\README.md\\week5\\CarShop\\src\\main\\java\\database.properties"))){
+            props.load(in);
 
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+            try (Connection conn = getConnection()){
 
                 Statement statement = conn.createStatement();
 
@@ -111,13 +112,11 @@ public class JdbcConnector{
     }
 
     public static void Update(int id, int price) {
-        try{
-            String url = "jdbc:mysql://localhost/CarShop?serverTimezone=Europe/Moscow&useSSL=false";
-            String username = "root";
-            String password = "916052";
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+        Properties props = new Properties();
+        try(InputStream in = Files.newInputStream(Paths.get("C:\\Users\\24425\\Desktop\\JavaLearn\\README.md\\week5\\CarShop\\src\\main\\java\\database.properties"))){
+            props.load(in);
 
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+            try (Connection conn = getConnection()){
 
                 Statement statement = conn.createStatement();
                 statement.executeUpdate("UPDATE Car SET price = "+price+" WHERE id="+id+"");
