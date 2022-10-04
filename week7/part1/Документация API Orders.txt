@@ -1,0 +1,121 @@
+GET LIST Orders:
+1.GET LIST Orders
+2.GET /api/order
+3.None
+4.None(200 OK)
+
+Response Body:
+[
+    {
+        "id": 1,
+        "buyer": {
+            "id": 3,
+            "name": "Mike",
+            "surName": "Vazovsky",
+            "email": "mikevazovsky@gmail.com",
+            "phoneNumber": "+86 184 196 161"
+        },
+        "t_shirt": {
+            "id": 1,
+            "name": "Adidas men's t-shirt",
+            "color": "Black",
+            "price": 1999,
+            "createdAt": null,
+            "updatedAt": null,
+            "createdWho": null
+        },
+        "order_date": "04/10/22"
+    },
+    {
+        "id": 2,
+        "buyer": {
+            "id": 1,
+            "name": "Umar",
+            "surName": "Dzhumaza",
+            "email": "umardzhumaza@mail.ru",
+            "phoneNumber": "+996 703 361 322"
+        },
+        "t_shirt": {
+            "id": 3,
+            "name": "Nike women's t-shirt",
+            "color": "With a unique print",
+            "price": 2599,
+            "createdAt": null,
+            "updatedAt": null,
+            "createdWho": null
+        },
+        "order_date": "14.10.22"
+    }
+]
+===================================================
+GET SINGLE Order
+1.GET SINGLE Order
+2.GET /api/order/id
+3.None
+4.None(200 OK) or 404 NOT FOUND
+
+Response Body 200:
+[
+    {
+        "id": 1,
+        "buyer": {
+            "id": 3,
+            "name": "Mike",
+            "surName": "Vazovsky",
+            "email": "mikevazovsky@gmail.com",
+            "phoneNumber": "+86 184 196 161"
+        },
+        "t_shirt": {
+            "id": 1,
+            "name": "Adidas men's t-shirt",
+            "color": "Black",
+            "price": 1999,
+            "createdAt": null,
+            "updatedAt": null,
+            "createdWho": null
+        },
+        "order_date": "04/10/22"
+    }
+]
+
+Response Body 404:
+{
+    "message": "Buyer with this id wasn't found",
+    "timestamp": 1664285487577
+}
+====================================================
+POST CREATE
+1.POST CREATE
+2.POST /api/order
+3.Params:
+http://localhost:8080/api/order?buyer_id=3&t_shirt_id=1&order_date=04/10/22
+4.200 OK OR 400 BAD REQUEST
+
+Response status 200 OK!
+
+Response Body 400:
+{
+    "message": "T_Shirt or Buyer wasn't found!",
+    "timestamp": 1664285908732
+}
+========================================================
+PUT UPDATE
+1.PUT UPDATE
+2.PUT /api/order/update/id
+3.Params:
+http://localhost:8080/api/order/update/1?buyer_id=3&t_shirt_id=1&order_date=04/10/22
+4.200 OK OR 400 BAD REQUEST
+
+Response status 200 OK!
+
+Response Body 400:
+{
+    "message": "Order with this id wasn't found",
+    "timestamp": 1664285908732
+}
+========================================================
+DELETE Order:
+1.DELETE Order
+2.DELETE /api/order/delete/id
+3.None
+4.None(200 OK)

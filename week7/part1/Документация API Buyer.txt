@@ -1,0 +1,90 @@
+GET LIST Buyers:
+1.GET LIST Buyers
+2.GET /api/buyer
+3.None
+4.None(200 OK)
+
+Response Body:
+[
+    {
+        "id": 1,
+        "name": "Umar",
+        "surName": "Dzhumaza",
+        "email": "umardzhumaza@mail.ru",
+        "phoneNumber": "+996 703 361 322"
+    },
+    {
+        "id": 3,
+        "name": "Mike",
+        "surName": "Vazovsky",
+        "email": "mikevazovsky@gmail.com",
+        "phoneNumber": "+86 184 196 161"
+    }
+]
+===================================================
+GET SINGLE Buyer
+1.GET SINGLE Buyer
+2.GET /api/buyer/id
+3.None
+4.None(200 OK) or 404 NOT FOUND
+
+Response Body 200:
+{
+    "id": 3,
+    "name": "Mike",
+    "surName": "Vazovsky",
+    "email": "mikevazovsky@gmail.com",
+    "phoneNumber": "+86 184 196 161"
+}
+
+Response Body 404:
+{
+    "message": "Buyer with this id wasn't found",
+    "timestamp": 1664285487577
+}
+====================================================
+POST CREATE
+1.POST CREATE
+2.POST /api/buyer
+3.Request Body:
+{
+    "name": "Mike",
+    "surName": "Vazovsky",
+    "email": "mikevazovsky@gmail.com",
+    "phoneNumber": "+86 184 196 161"
+}
+4.200 OK OR 400 BAD REQUEST
+
+Response status 200 OK!
+
+Response Body 400:
+{
+    "message": "name - Name should be between 2 and 100 characters",
+    "timestamp": 1664285908732
+}
+========================================================
+PUT UPDATE
+1.PUT UPDATE
+2.PUT /api/buyer/update/id
+3.Request Body:
+{
+    "name": "Jane",
+    "surName": "Vazovsky",
+    "email": "janevazovsky@gmail.com",
+    "phoneNumber": "+86 184 196 161"
+}
+4.200 OK OR 400 BAD REQUEST
+
+Response status 200 OK!
+
+Response Body 400:
+{
+    "message": "name - Name should be between 2 and 100 characters",
+    "timestamp": 1664285908732
+}
+========================================================
+DELETE Buyer:
+1.DELETE Buyer
+2.DELETE /api/buyer/delete/id
+3.None
+4.None(200 OK)
