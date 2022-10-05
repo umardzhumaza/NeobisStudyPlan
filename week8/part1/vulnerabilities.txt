@@ -1,3 +1,4 @@
 1. Week 5 have database.properties. It contains the url login password for the database, this is not safe, so this file must be removed from the commit history!
 2. Week 6, week 7 part1 and part 2 there is an application.properties file, they also contain url passwords logins for the database,
 they also need to be removed using the git filter and subsequently added to the git ignore!
+3. Deleted all properties with login and password with BFG and GIT FILTER!
