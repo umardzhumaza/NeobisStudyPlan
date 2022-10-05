@@ -30,7 +30,6 @@ GET SINGLE Buyer
 
 Response Body 200:
 {
-    "id": 3,
     "name": "Mike",
     "surName": "Vazovsky",
     "email": "mikevazovsky@gmail.com",
@@ -48,6 +47,7 @@ POST CREATE
 2.POST /api/buyer
 3.Request Body:
 {
+    "id": "1"
     "name": "Mike",
     "surName": "Vazovsky",
     "email": "mikevazovsky@gmail.com",
