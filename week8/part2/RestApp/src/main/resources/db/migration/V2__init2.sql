@@ -1,0 +1,1 @@
+INSERT INTO Buyer(email, name, phone_number, sur_name) VALUE ('alex@gmail.com', 'Alex', '+1 124 556 987', 'Prat');

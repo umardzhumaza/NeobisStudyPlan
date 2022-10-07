@@ -1,0 +1,5 @@
+1.Implemented "Spring security", "Authentication", "Authorization", "CSRF Token" "Logout", "Registration", "@PreAuthorize" In a separate project!
+2.Add ROLES , admin and user and non authentication!
+3.Add registration, login!
+5.Add encoding password with BCript!
+6.Restrict access to pages for admins and users!
