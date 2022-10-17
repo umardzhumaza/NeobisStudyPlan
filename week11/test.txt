@@ -1,0 +1,34 @@
+In docker, mysql container use console:
+mysql --password
+Set password: 916052
+sql query: Use clothes_store;
+sql query: UPDATE users set ROLE = 'ROLE_ADMIN' WHERE username = 'your_registry_username';
+1.I tested the API using the POSTMAN POST CREATE method "/api/t_shirt" and body:
+"{
+"name": "Man's t-shirt",
+"color": "White",
+"price": 1400
+}" and got a response status 200 OK!
+------------------------------------------------------------------------------------------------------------------
+2.Tested with POSTMAN method GET request GET T-Shirts "/api/t_shirt" and received as a result JSON in the format:
+{
+     "name": "Man's t-shirt",
+     "color": "White",
+     "price": 1400
+}
+------------------------------------------------------------------------------------------------------------------
+3.Tested using POSTMAN method GET SINGLE T-Shirt "/api/t_shirt/1" and got the result in JSON format:
+{
+     "name": "Man's t-shirt",
+     "color": "White",
+     "price": 1400
+}
+------------------------------------------------------------------------------------------------------------------
+4.I tested the API using the POSTMAN PUT UPDATE method "/api/t_shirt/update/1" and body:
+"{
+"name": "Woman's t-shirt",
+"color": "White",
+"price": 1400
+}" and got response status 200 OK!
+------------------------------------------------------------------------------------------------------------------
+5.I tested the API using the POSTMAN DELETE DELETE method "/api/t_shirt/delete/1" and got response status 200 OK!
