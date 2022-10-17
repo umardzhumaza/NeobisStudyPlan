@@ -1,36 +1,25 @@
-version: '2.1'
-
+version: '3.9'
 services:
-  #service 1: mysql database image creation
-  db:
-    image: mysql:8.0-debian
-    container_name: mysql-db
+  t_shirt-shop:
+    container_name: clothes-store
+    image: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=916052
+      MYSQL_DATABASE: clothes_store
+      MYSQL_PASSWORD: 916052
+      MYSQL_ROOT_PASSWORD: 916052
+  restapp:
+    container_name: restapp
+    image: restapp
     ports:
-      - "3306:3306"
-    restart: always
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
-
-
-  # service 2: Clothes_store Manager app image creation
-  RestApp:
-    image: umar/restapp
-    container_name: rest-service-app     # name of container created from image
-    build:
-      context: .                          # path to docker file
-      dockerfile: Dockerfile              # docker file name
-    ports:
-      - "8090:8081"                       # stock service port
-    restart: always
-
-    depends_on:                           #define dependencies of this app
-      db :                              #dependency name (which is defined with this name 'db' in this file earlier)
-        condition: service_healthy
+      - 8080:8080
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/clothes_store_testdb?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_URL: jdbc:mysql://clothes-store:3306/clothes_store?createDatabaseIfNotExist=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 916052
+      SPRING_DATASOURCE_PASSOWRD: 916052
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - t_shirt-shop
