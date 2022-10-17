@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  t_shirt-shop:
+    container_name: clothes-store
+    image: mysql
+    environment:
+      MYSQL_DATABASE: clothes_store
+      MYSQL_PASSWORD: 916052
+      MYSQL_ROOT_PASSWORD: 916052
+  restapp:
+    container_name: restapp
+    image: restapp
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://clothes-store:3306/clothes_store?createDatabaseIfNotExist=true&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSOWRD: 916052
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - t_shirt-shop
