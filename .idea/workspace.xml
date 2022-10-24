@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c454e628-687b-45c2-a5fa-7e810c73928c" name="Changes" comment="add 1 png" />
+    <list default="true" id="c454e628-687b-45c2-a5fa-7e810c73928c" name="Changes" comment="Push week 12">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,18 +46,18 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/24425/Desktop/JavaLearn/NeobisStudyPlan",
+    "last_opened_file_path": "C:/Users/24425/Desktop/JavaLearn/SpringLearning/RestApp",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\24425\Desktop\JavaLearn\NeobisStudyPlan\.idea" />
+      <recent name="C:\Users\24425\Desktop\JavaLearn\NeobisStudyPlan\week12" />
       <recent name="C:\Users\24425\Desktop\JavaLearn\README.md\week11" />
       <recent name="C:\Users\24425\Desktop\JavaLearn\README.md\week7\part1\ClothesShopRestApp\RestApp\src\main\resources" />
       <recent name="C:\Users\24425\Desktop\JavaLearn\README.md\week6\part2\ClothesShopRestApi\RestApp\src\main\resources" />
-      <recent name="C:\Users\24425\Desktop\JavaLearn\README.md\week7\part2\RestApp\src\main\resources" />
-      <recent name="C:\Users\24425\Desktop\JavaLearn\README.md\week6\part2\ClothesShopRestApi" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\24425\Desktop\JavaLearn\README.md\week6\part1" />
@@ -95,6 +97,7 @@
       <workItem from="1665993524294" duration="1317000" />
       <workItem from="1666018576435" duration="4951000" />
       <workItem from="1666088502925" duration="590000" />
+      <workItem from="1666586045409" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="sql">
       <created>1663407115675</created>
@@ -376,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666023301138</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Push week 12">
+      <created>1666182916366</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1666182916366</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,6 +440,7 @@
     <MESSAGE value="Finished week 10! Add JWTToken authentication and authorization!" />
     <MESSAGE value="Finished week 11! Add test.txt how i tested api with docker and README.md for information how to use dockerfile and docker-compose!" />
     <MESSAGE value="add 1 png" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 1 png" />
+    <MESSAGE value="Push week 12" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push week 12" />
   </component>
 </project>
