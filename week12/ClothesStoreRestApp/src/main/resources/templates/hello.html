@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+Hello world!
+<br>
+<h2>How to use this API:</h2>
+<div class="row">
+    <div class="column" style="background-color:#aaa;">
+        <h2>T-Shirt</h2>
+        <p>GET LIST T-Shirts:<br>
+            1.GET LIST T-Shirts<br>
+            2.GET /api/t_shirt<br>
+            3.None<br>
+            4.None(200 OK)<br>
+            <br>
+            Response Body:<br>
+            [<br>
+            {<br>
+            "id": 1,<br>
+            "name": "Adidas men's t-shirt",<br>
+            "color": "Black",<br>
+            "price": 1999<br>
+            },<br>
+            {<br>
+            "id": 2,<br>
+            "name": "Puma men's t-shirt",<br>
+            "color": "White",<br>
+            "price": 1599<br>
+            }<br>
+            ]<br>
+            ===================================================<br>
+            GET SINGLE T-Shirt<br>
+            1.GET SINGLE T-Shirt<br>
+            2.GET /api/t_shirt/id<br>
+            3.None<br>
+            4.None(200 OK) or 404 NOT FOUND<br>
+            <br>
+            Response Body 200:<br>
+            {<br>
+            "id": 1,<br>
+            "name": "Adidas men's t-shirt",<br>
+            "color": "Black",<br>
+            "price": 1999<br>
+            }<br>
+            <br>
+            Response Body 404:<br>
+            {<br>
+            "message": "T-Shirt with this id wasn't found",<br>
+            "timestamp": 1664285487577<br>
+            }<br>
+            ====================================================<br>
+            POST CREATE<br>
+            1.POST CREATE<br>
+            2.POST /api/t_shirt<br>
+            3.Request Body:<br>
+            {<br>
+            "name": "Adidas men's t-shirt",<br>
+            "color": "Black",<br>
+            "price": 1999<br>
+            }<br>
+            4.200 OK OR 400 BAD REQUEST<br>
+            <br>
+            Response status 200 OK!<br>
+            <br>
+            Response Body 400:<br>
+            {<br>
+            "message": "color - Color should be between 2 and 30 characters;price - Price should be greater than 0;",<br>
+            "timestamp": 1664285908732<br>
+            }<br>
+            ========================================================<br>
+            PUT UPDATE<br>
+            1.PUT UPDATE<br>
+            2.PUT /api/t_shirt/update/id<br>
+            3.Request Body:<br>
+            {<br>
+            "name": "Adidas men's t-shirt",<br>
+            "color": "Black",<br>
+            "price": 1999<br>
+            }<br>
+            4.200 OK OR 400 BAD REQUEST<br>
+            <br>
+            Response status 200 OK!<br>
+            <br>
+            Response Body 400:<br>
+            {<br>
+            "message": "color - Color should be between 2 and 30 characters;price - Price should be greater than 0;",<br>
+            "timestamp": 1664285908732<br>
+            }<br>
+            ========================================================<br>
+            DELETE T-Shirt:<br>
+            1.DELETE T-Shirt<br>
+            2.DELETE /api/t_shirt/delete/id<br>
+            3.None<br>
+            4.None(200 OK)<br></p>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+        <h2>Buyer</h2>
+        <p>GET LIST Buyers:<br>
+            1.GET LIST Buyers<br>
+            2.GET /api/buyer<br>
+            3.None<br>
+            4.None(200 OK)<br>
+            <br>
+            Response Body:<br>
+            [<br>
+            {<br>
+            "id": 1,<br>
+            "name": "Umar",<br>
+            "surName": "Dzhumaza",<br>
+            "email": "umardzhumaza@mail.ru",<br>
+            "phoneNumber": "+996 703 361 322"<br>
+            },<br>
+            {<br>
+            "id": 3,<br>
+            "name": "Mike",<br>
+            "surName": "Vazovsky",<br>
+            "email": "mikevazovsky@gmail.com",<br>
+            "phoneNumber": "+86 184 196 161"<br>
+            }<br>
+            ]<br>
+            ===================================================<br>
+            GET SINGLE Buyer<br>
+            1.GET SINGLE Buyer<br>
+            2.GET /api/buyer/id<br>
+            3.None<br>
+            4.None(200 OK) or 404 NOT FOUND<br>
+            <br>
+            Response Body 200:<br>
+            {<br>
+            "name": "Mike",<br>
+            "surName": "Vazovsky",<br>
+            "email": "mikevazovsky@gmail.com",<br>
+            "phoneNumber": "+86 184 196 161"<br>
+            }<br>
+            <br>
+            Response Body 404:<br>
+            {<br>
+            "message": "Buyer with this id wasn't found",<br>
+            "timestamp": 1664285487577<br>
+            }<br>
+            ====================================================<br>
+            POST CREATE<br>
+            1.POST CREATE<br>
+            2.POST /api/buyer<br>
+            3.Request Body:<br>
+            {<br>
+            "id": "1"<br>
+            "name": "Mike",<br>
+            "surName": "Vazovsky",<br>
+            "email": "mikevazovsky@gmail.com",<br>
+            "phoneNumber": "+86 184 196 161"<br>
+            }<br>
+            4.200 OK OR 400 BAD REQUEST<br>
+            <br>
+            Response status 200 OK!<br>
+            <br>
+            Response Body 400:<br>
+            {
+            "message": "name - Name should be between 2 and 100 characters",<br>
+            "timestamp": 1664285908732<br>
+            }<br>
+            ========================================================<br>
+            PUT UPDATE<br>
+            1.PUT UPDATE<br>
+            2.PUT /api/buyer/update/id<br>
+            3.Request Body:<br>
+            {<br>
+            "name": "Jane",<br>
+            "surName": "Vazovsky",<br>
+            "email": "janevazovsky@gmail.com",<br>
+            "phoneNumber": "+86 184 196 161"<br>
+            }<br>
+            4.200 OK OR 400 BAD REQUEST<br>
+            <br>
+            Response status 200 OK!<br>
+            <br>
+            Response Body 400:<br>
+            {<br>
+            "message": "name - Name should be between 2 and 100 characters",<br>
+            "timestamp": 1664285908732<br>
+            }<br>
+            ========================================================<br>
+            DELETE Buyer:<br>
+            1.DELETE Buyer<br>
+            2.DELETE /api/buyer/delete/id<br>
+            3.None<br>
+            4.None(200 OK)<br></p><br>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+        <h2>Order</h2>
+        <p>GET LIST Orders:<br>
+            1.GET LIST Orders<br>
+            2.GET /api/order<br>
+            3.None<br>
+            4.None(200 OK)<br>
+            <br>
+            Response Body:<br>
+            [<br>
+            {<br>
+            "id": 1,<br>
+            "buyer": {<br>
+            "id": 3,<br>
+            "name": "Mike",<br>
+            "surName": "Vazovsky",<br>
+            "email": "mikevazovsky@gmail.com",<br>
+            "phoneNumber": "+86 184 196 161"<br>
+            },<br>
+            "t_shirt": {<br>
+            "id": 1,<br>
+            "name": "Adidas men's t-shirt",<br>
+            "color": "Black",<br>
+            "price": 1999,<br>
+            "createdAt": null,<br>
+            "updatedAt": null,<br>
+            "createdWho": null<br>
+            },<br>
+            "order_date": "04/10/22"<br>
+            },<br>
+            {<br>
+            "id": 2,<br>
+            "buyer": {<br>
+            "id": 1,<br>
+            "name": "Umar",<br>
+            "surName": "Dzhumaza",<br>
+            "email": "umardzhumaza@mail.ru",<br>
+            "phoneNumber": "+996 703 361 322"<br>
+            },<br>
+            "t_shirt": {<br>
+            "id": 3,<br>
+            "name": "Nike women's t-shirt",<br>
+            "color": "With a unique print",<br>
+            "price": 2599,<br>
+            "createdAt": null,<br>
+            "updatedAt": null,<br>
+            "createdWho": null<br>
+            },<br>
+            "order_date": "14.10.22"<br>
+            }<br>
+            ]<br>
+            ===================================================<br>
+            GET SINGLE Order<br>
+            1.GET SINGLE Order<br>
+            2.GET /api/order/id<br>
+            3.None<br>
+            4.None(200 OK) or 404 NOT FOUND<br>
+            <br>
+            Response Body 200:<br>
+            [<br>
+            {<br>
+            "id": 1,<br>
+            "buyer": {<br>
+            "id": 3,<br>
+            "name": "Mike",<br>
+            "surName": "Vazovsky",<br>
+            "email": "mikevazovsky@gmail.com",<br>
+            "phoneNumber": "+86 184 196 161"<br>
+            },<br>
+            "t_shirt": {<br>
+            "id": 1,<br>
+            "name": "Adidas men's t-shirt",<br>
+            "color": "Black",<br>
+            "price": 1999,<br>
+            "createdAt": null,<br>
+            "updatedAt": null,<br>
+            "createdWho": null<br>
+            },<br>
+            "order_date": "04/10/22"<br>
+            }<br>
+            ]<br>
+            <br>
+            Response Body 404:<br>
+            {<br>
+            "message": "Buyer with this id wasn't found",<br>
+            "timestamp": 1664285487577<br>
+            }<br>
+            ====================================================<br>
+            POST CREATE<br>
+            1.POST CREATE<br>
+            2.POST /api/order<br>
+            3.Params:<br>
+            http://localhost:8080/api/order?buyer_id=3&t_shirt_id=1&order_date=04/10/22<br>
+            4.200 OK OR 400 BAD REQUEST<br>
+            <br>
+            Response status 200 OK!<br>
+            <br>
+            Response Body 400:<br>
+            {<br>
+            "message": "T_Shirt or Buyer wasn't found!",<br>
+            "timestamp": 1664285908732<br>
+            }<br>
+            ========================================================<br>
+            PUT UPDATE<br>
+            1.PUT UPDATE<br>
+            2.PUT /api/order/update/id<br>
+            3.Params:<br>
+            http://localhost:8080/api/order/update/1?buyer_id=3&t_shirt_id=1&order_date=04/10/22<br>
+            4.200 OK OR 400 BAD REQUEST<br>
+            <br>
+            Response status 200 OK!<br>
+            <br>
+            Response Body 400:<br>
+            {<br>
+            "message": "Order with this id wasn't found",<br>
+            "timestamp": 1664285908732<br>
+            }<br>
+            ========================================================<br>
+            DELETE Order:<br>
+            1.DELETE Order<br>
+            2.DELETE /api/order/delete/id<br>
+            3.None<br>
+            4.None(200 OK)<br></p>
+    </div>
+</div>
+<br/>
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>

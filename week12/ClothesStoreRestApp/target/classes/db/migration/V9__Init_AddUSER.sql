@@ -1,0 +1,1 @@
+INSERT INTO users(id, username, year_of_birth, password, role) values (2, 'Max', 2002, '$2a$10$qAC/aVNYFc/lC58.GIhCRuHZFo7IOG8wQFJGcyS3QPUKYgwtTkgO.', 'ROLE_USER');
