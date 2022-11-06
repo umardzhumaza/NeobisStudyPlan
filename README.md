@@ -1,8 +1,8 @@
 # README.md
 # umardzhumaza 12.09.2022 Dzhumaza Umar
-Заголовок
+REST API
 ====
-Средний титул
+T-Shirt Shop
 ------
 ```Java
 public static void main(String[] args) {}
